@@ -1,15 +1,17 @@
 server:
-  port: 8762
+  port: 8888
 spring:
   application:
-    name: nativeconfigserver
-  profiles:
-    active: native
+    name: configserver
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/config
+        git:
+          uri: https://github.com/EF302/myspringcloud.git
+          search-paths: config
+          username: EF302
+          password: Lwl15284969061!
+      label: master
 eureka:
   client:
     service-url:
