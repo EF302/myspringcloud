@@ -1,0 +1,14 @@
+#application.yml是默认配置文件，而这里的配置文件是用于去读取本地配置中心中设置的配置文件中的配置信息,且名字必须为bootstrap
+spring:
+  #configclient和dev与configclient-dev.yml对应
+  #通过configclient和dev拼接⽬标配置⽂件名，conﬁgclient-dev.yml，去Conﬁg Server中查找该⽂件
+  application:
+    name: configclient
+  profiles:
+    active: dev
+  cloud:
+    config:
+      #本地Conﬁg Server的访问路径
+      uri: http://localhost:8762
+      #设置客户端优先判断Conﬁg Server获取是否正常
+      fail-fast: true
